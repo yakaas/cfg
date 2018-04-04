@@ -13,7 +13,7 @@
 ;; disable useless graphical extras
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
+;(scroll-bar-mode -1)
 
 ;; hide startup messages
 (setq inhibit-startup-screen t) ; no splash screen

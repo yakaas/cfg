@@ -18,17 +18,17 @@
            "go build -v && go test -v && go vet"))
 
   ;; Enable Oracle for code analysis
-  (let ((guru-el (substitute-in-file-name "$HOME/tmp/go-mode.el src/golang.org/x/tools/cmd/gur/go-guru.el")))
-    (when (file-exists-p guru-el)
-      (load-file guru-el)))
+  ;(let ((guru-el (substitute-in-file-name "$HOME/.emacs.d/elpa/go-mode-20180327.830/go-mode.el src/golang.org/x/tools/cmd/gur/go-guru.el")))
+  ;  (when (file-exists-p guru-el)
+  ;    (load-file guru-el)))
 
-  (add-to-list 'load-path "~/tmp/use-package")
-  (require 'use-package)
+(add-to-list 'load-path "~/tmp/elisp/use-package")
+(require 'use-package)
 
-  (use-package go-mode
-    :load-path "~/tmp/go-mode")
+(use-package go-mode
+  :load-path "~/tmp/elisp/go-mode")
 
-  (use-package go-guru)
+(use-package go-guru)
 
 
   ;; Godef jump key binding
