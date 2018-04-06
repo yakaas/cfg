@@ -92,3 +92,33 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+updategotools() {
+    go get -u  golang.org/x/tools/cmd/godoc
+    go get -u golang.org/x/tools/cmd/goimports
+    go get -u github.com/rogpeppe/godef
+    go get -u github.com/nsf/gocode
+    go get -u golang.org/x/tools/cmd/...
+}
+
+alias gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
+alias gs='git status -sb'
+alias gc='git commit -v -a'
+alias gca='git commit -v -a --amend --no-edit'
+alias gcae='git commit -v -a --amend'
+alias gcah='git commit --ammend -C HEAD'
+alias gpush='git push -v'
+alias gp='git pull -v'
+alias gpullr='git pull --rebase -v'
+
+# .file config
+alias config="/usr/bin/git --git-dir=/Users/$USER/.cfg/ --work-tree=/Users/$USER"
+
+alias docker-rm='docker rm $(docker ps -a -q)'
+alias docker-rmi='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
+alias docker-logs='docker ps -a -q | head -1 | xargs -r docker logs'
+
+alias go-src='cd ~/gocode/src/code.uber.internal'
+alias verify-makefile='cat -e -t -v  Makefile'
+
+alias e="emacsclient -a '' -c"
