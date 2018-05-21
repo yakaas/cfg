@@ -50,6 +50,7 @@
     markdown-mode
     magit
     multiple-cursors
+    neotree
     haskell-mode
     iedit
     edts
@@ -201,6 +202,10 @@ Version 2016-12-27"
   (transpose-lines 1)
   (forward-line -1)
   (indent-according-to-mode))
+
+;; (add-to-list 'load-path "/some/path/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 
 
 (global-set-key (kbd "<f7>") 'xah-new-empty-buffer)
