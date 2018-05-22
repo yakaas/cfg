@@ -227,6 +227,8 @@ Version 2016-12-27"
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+; rgrep
+(global-set-key (kbd "C-c s") 'rgrep)
 
 ;; Rust
 (use-package rust-mode
