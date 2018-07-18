@@ -15,7 +15,7 @@
   ;; Customize compile command to run go build
   (if (not (string-match "go" compile-command))
       (set (make-local-variable 'compile-command)
-           "go build -v && go test -v && go vet"))
+           "go build -v && go test -v -cover && go vet"))
 
   ;; Enable Oracle for code analysis
   ;(let ((guru-el (substitute-in-file-name "$HOME/.emacs.d/elpa/go-mode-20180327.830/go-mode.el src/golang.org/x/tools/cmd/gur/go-guru.el")))
