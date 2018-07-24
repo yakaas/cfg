@@ -101,6 +101,11 @@ updategotools() {
     go get -u golang.org/x/tools/cmd/...
 }
 
+lock() {
+    # /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend this one is heavy
+    pmset displaysleepnow  # make sure to enable require password under "security & privacy"
+}
+
 alias gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
 alias gs='git status -sb'
 alias gc='git commit -v -a'
