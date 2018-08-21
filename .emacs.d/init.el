@@ -260,4 +260,7 @@ Version 2016-12-27"
   :ensure t
   :mode "\\.html\\'")
 
+(require 'thrift-mode)
+(add-to-list 'auto-mode-alist '("\\.thrift$" . thrift-mode))
+
 ; init.el ends here
