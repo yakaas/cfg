@@ -123,7 +123,8 @@ alias docker-rm='docker rm $(docker ps -a -q)'
 alias docker-rmi='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
 alias docker-logs='docker ps -a -q | head -1 | xargs -r docker logs'
 
-alias go-src='cd ~/gocode/src/code.uber.internal'
 alias verify-makefile='cat -e -t -v  Makefile'
 
 alias e="emacsclient -a '' -c"
+
+source ~/stuff/work.rc
