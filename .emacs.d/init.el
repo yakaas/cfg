@@ -64,6 +64,7 @@
     rjsx-mode
     racer
     yasnippet
+    ack
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -229,6 +230,12 @@ Version 2016-12-27"
 
 ; rgrep
 (global-set-key (kbd "C-c s") 'rgrep)
+
+; ack
+(global-set-key (kbd "C-c a") 'ack)
+
+(add-hook 'ack-minibuffer-setup-hook 'ack-skel-vc-grep t)
+(add-hook 'ack-minibuffer-setup-hook 'ack-yank-symbol-at-point t)
 
 ;; Rust
 (use-package rust-mode
