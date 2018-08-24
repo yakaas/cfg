@@ -164,6 +164,14 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+(defun kill-all-buffers ()
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  (mapc 'kill-buffer (delq (current-buffer) (remove-if-not '(lambda (x) (or (buffer-file-name x) (eq 'dired-mode (buffer-local-value 'major-mode x)))) (buffer-list)))))
 
 (defun xah-new-empty-buffer ()
   "Create a new empty buffer. New buffer will be named “untitled” or “untitled<2>”, etc.
