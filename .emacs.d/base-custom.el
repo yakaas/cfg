@@ -199,6 +199,7 @@
 (defalias 'sh 'ansi-term)
 
 (set-frame-font "Inconsolata 14" nil t)
+(setq default-frame-alist '((font . "Inconsolata 14")))
 
 (provide 'base-custom)
 ;;; base-custom.el ends here
