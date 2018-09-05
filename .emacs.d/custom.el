@@ -54,7 +54,7 @@
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (thrift-mode neotree fiplr scala-mode csharp-mode ## multiple-cursors dired-details framemove google-c-style flymake-cursor flymake-google-cpplint iedit auto-complete-c-headers yasnippet auto-cmplete-config rjsx-mode web-mode jsx-mode anti-zenburn-theme darkokai-theme racer edts erlang paredit color-theme quickrun haskell-mode dockerfile-mode rust-mode yaml-mode terraform-mode company company-go go-autocomplete go-eldoc smartparens markdown-mode flycheck magit use-package go-guru auto-complete exec-path-from-shell go-mode zenburn-theme ujelly-theme solarized-theme monokai-theme blackboard-theme ample-zen-theme)))
+    (ack thrift-mode neotree fiplr scala-mode csharp-mode ## multiple-cursors dired-details framemove google-c-style flymake-cursor flymake-google-cpplint iedit auto-complete-c-headers yasnippet auto-cmplete-config rjsx-mode web-mode jsx-mode anti-zenburn-theme darkokai-theme racer edts erlang paredit color-theme quickrun haskell-mode dockerfile-mode rust-mode yaml-mode terraform-mode company company-go go-autocomplete go-eldoc smartparens markdown-mode flycheck magit use-package go-guru auto-complete exec-path-from-shell go-mode zenburn-theme ujelly-theme solarized-theme monokai-theme blackboard-theme ample-zen-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")

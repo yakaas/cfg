@@ -88,10 +88,9 @@
     (load system-extension)))
 
 ;; Navigate through windows and frames using Shift-<Arrow>
-;(require 'framemove)
-;(windmove-default-keybindings)
-;(setq framemove-hook-into-windmove t)
-
+(require 'framemove)
+(windmove-default-keybindings)
+(setq framemove-hook-into-windmove t)
 
 ;;; magit configuration
 (autoload 'magit-status "magit" nil t)
