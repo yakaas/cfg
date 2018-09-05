@@ -198,7 +198,7 @@
 
 (defalias 'sh 'ansi-term)
 
-(set-frame-font "Inconsolata 15" nil t)
+(set-frame-font "Inconsolata 14" nil t)
 
 (provide 'base-custom)
 ;;; base-custom.el ends here
