@@ -106,6 +106,10 @@ lock() {
     pmset displaysleepnow  # make sure to enable require password under "security & privacy"
 }
 
+historyfn() {
+    history | sort -k 2| uniq -f 1 | sort -n | cut -f 2
+}
+
 alias gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
 alias gs='git status -sb'
 alias gc='git commit -v -a'
@@ -126,5 +130,6 @@ alias docker-logs='docker ps -a -q | head -1 | xargs -r docker logs'
 alias verify-makefile='cat -e -t -v  Makefile'
 
 alias e="emacsclient -a '' -c"
+alias history='historyfn'
 
 source ~/stuff/work.rc
