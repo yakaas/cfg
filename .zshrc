@@ -132,4 +132,7 @@ alias verify-makefile='cat -e -t -v  Makefile'
 alias e="emacsclient -a '' -c"
 alias history='historyfn'
 
+# go
+alias go-cover='go tool cover -html=/tmp/c'
+
 source ~/stuff/work.rc
