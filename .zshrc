@@ -133,6 +133,6 @@ alias e="emacsclient -a '' -c"
 alias history='historyfn'
 
 # go
-alias go-cover='go tool cover -html=/tmp/c'
+alias gco='go tool cover -html=/tmp/c'
 
 source ~/stuff/work.rc

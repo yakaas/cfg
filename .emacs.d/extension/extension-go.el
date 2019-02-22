@@ -15,20 +15,30 @@
   ;; Customize compile command to run go build
   (if (not (string-match "go" compile-command))
       (set (make-local-variable 'compile-command)
-           "go build -v && go vet && go test -v -cover -coverprofile=/tmp/c.out"))
+           "go build -v && go vet && go test -v -cover -coverprofile=/tmp/c"))
+
+
+  ;; https://github.com/melpa/melpa/blob/master/recipes/go-guru
+  ;;  :repo "dominikh/go-mode.el"
+  ;;  :fetcher github
+  ;;  :files ("go-guru.el")
 
   ;; Enable Oracle for code analysis
-  ;(let ((guru-el (substitute-in-file-name "$HOME/.emacs.d/elpa/go-mode-20180327.830/go-mode.el src/golang.org/x/tools/cmd/gur/go-guru.el")))
-  ;  (when (file-exists-p guru-el)
-  ;    (load-file guru-el)))
+  ;;(add-to-list 'load-path "/place/where/you/put/it/")
+  ;;  (autoload 'go-mode "go-mode" nil t)
+  ;;  (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
-(add-to-list 'load-path "~/tmp/elisp/use-package")
-(require 'use-package)
+                                        ;(let ((guru-el (substitute-in-file-name "$HOME/.emacs.d/elpa/go-mode-20180327.830/go-mode.el src/golang.org/x/tools/cmd/gur/go-guru.el")))
+                                        ;  (when (file-exists-p guru-el)
+                                        ;    (load-file guru-el)))
 
-(use-package go-mode
-  :load-path "~/tmp/elisp/go-mode")
+  (add-to-list 'load-path "~/tmp/elisp/use-package")
+  (require 'use-package)
 
-(use-package go-guru)
+  (use-package go-mode
+    :load-path "~/tmp/elisp/go-mode")
+
+  (use-package go-guru)
 
   ;; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump)

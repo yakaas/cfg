@@ -6,6 +6,8 @@
 
 ;;; Code:
 
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; These are base customizations that are emacs centric.
@@ -210,6 +212,62 @@ Version 2016-12-27"
   (transpose-lines 1)
   (forward-line -1)
   (indent-according-to-mode))
+
+;;; copy without highlighting https://www.emacswiki.org/emacs/CopyWithoutSelection
+(defun get-point (symbol &optional arg)
+  "get the point"
+  (funcall symbol arg)
+  (point))
+
+(defun copy-thing (begin-of-thing end-of-thing &optional arg)
+      "Copy thing between beg & end into kill ring."
+      (save-excursion
+        (let ((beg (get-point begin-of-thing 1))
+              (end (get-point end-of-thing arg)))
+          (copy-region-as-kill beg end))))
+
+(defun paste-to-mark (&optional arg)
+      "Paste things to mark, or to the prompt in shell-mode."
+      (unless (eq arg 1)
+        (if (string= "shell-mode" major-mode)
+            (comint-next-prompt 25535)
+          (goto-char (mark)))
+        (yank)))
+
+;; copy word
+(defun copy-word (&optional arg)
+  "Copy words at point into kill-ring"
+  (interactive "P")
+  (copy-thing 'backward-word 'forward-word arg)
+  ;;(paste-to-mark arg)
+  )
+
+(global-set-key (kbd "C-c w")         (quote copy-word))
+
+;; copy line
+(defun copy-line (&optional arg)
+      "Save current line into Kill-Ring without mark the line "
+       (interactive "P")
+       (copy-thing 'beginning-of-line 'end-of-line arg)
+       (paste-to-mark arg)
+       )
+
+(global-set-key (kbd "C-c l")         (quote copy-line))
+
+;; copy paragraph
+(defun copy-paragraph (&optional arg)
+      "Copy paragraphes at point"
+       (interactive "P")
+       (copy-thing 'backward-paragraph 'forward-paragraph arg)
+       (paste-to-mark arg)
+       )
+
+(global-set-key (kbd "C-c p")         (quote copy-paragraph))
+
+
+
+
+
 
 ;; (add-to-list 'load-path "/some/path/neotree")
 (require 'neotree)
