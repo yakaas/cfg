@@ -17,6 +17,12 @@
       (set (make-local-variable 'compile-command)
            "go build -v && go vet && go test -v -cover -coverprofile=/tmp/c"))
 
+  (use-package go-guru)
+
+  ;; guru settings
+  (go-guru-hl-identifier-mode)                    ; highlight identifiers
+
+
 
   ;; https://github.com/melpa/melpa/blob/master/recipes/go-guru
   ;;  :repo "dominikh/go-mode.el"
@@ -38,7 +44,12 @@
   (use-package go-mode
     :load-path "~/tmp/elisp/go-mode")
 
-  (use-package go-guru)
+  ;; If the go-guru.el file is in the load path, this will load it.
+  ;;(require 'go-guru)
+
+  (require 'go-autocomplete)
+  ;; Misc go stuff
+  ;;(auto-complete-mode 1))                         ; Enable auto-complete mode
 
   ;; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump)
@@ -47,9 +58,13 @@
   (local-set-key (kbd "C-c C-n") 'flycheck-next-error)
   (local-set-key (kbd "C-c C-p") 'flycheck-previous-error))
 
-(require 'go-autocomplete)
-
+;; Connect go-mode-hook with the function we just defined
 (add-hook 'go-mode-hook 'my-go-mode-hook)
+
 (add-hook 'go-mode-hook 'flycheck-mode)
+
+;; Ensure the go specific autocomplete is active in go-mode.
+(with-eval-after-load 'go-mode
+  (require 'go-autocomplete))
 
 (provide 'extension-go)

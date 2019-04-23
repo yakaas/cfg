@@ -94,11 +94,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 updategotools() {
-    go get -u  golang.org/x/tools/cmd/godoc
+    go get -u golang.org/x/tools/cmd/godoc
     go get -u golang.org/x/tools/cmd/goimports
-    go get -u github.com/rogpeppe/godef
     go get -u github.com/nsf/gocode
     go get -u golang.org/x/tools/cmd/...
+    go get -u github.com/nsf/gocode
+    go get -u github.com/dougm/goflymake
+    go get -u github.com/rogpeppe/godef/...
+    go get -u golang.org/x/tools/cmd/guru
 }
 
 lock() {
@@ -136,3 +139,8 @@ alias history='historyfn'
 alias gco='go tool cover -html=/tmp/c'
 
 source ~/stuff/work.rc
+
+export GOPATH=$(go env GOPATH)
+
+#update path with go root
+PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
