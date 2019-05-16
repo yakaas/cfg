@@ -67,6 +67,7 @@
     racer
     yasnippet
     ack
+    ag
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -264,11 +265,6 @@ Version 2016-12-27"
 
 (global-set-key (kbd "C-c p")         (quote copy-paragraph))
 
-
-
-
-
-
 ;; (add-to-list 'load-path "/some/path/neotree")
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
@@ -293,14 +289,21 @@ Version 2016-12-27"
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+; searching
+
 ; rgrep
 (global-set-key (kbd "C-c s") 'rgrep)
 
 ; ack
-(global-set-key (kbd "C-c a") 'ack)
+;(global-set-key (kbd "C-c a") 'ack)
+;(add-hook 'ack-minibuffer-setup-hook 'ack-skel-vc-grep t)
+;(add-hook 'ack-minibuffer-setup-hook 'ack-yank-symbol-at-point t)
 
-(add-hook 'ack-minibuffer-setup-hook 'ack-skel-vc-grep t)
-(add-hook 'ack-minibuffer-setup-hook 'ack-yank-symbol-at-point t)
+; ag
+(global-set-key (kbd "C-c a") 'ag)
+(setq ag-reuse-buffers 't)
+(setq ag-highlight-search t)
+
 
 ;; Rust
 (use-package rust-mode
