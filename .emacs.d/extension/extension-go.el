@@ -38,11 +38,11 @@
                                         ;  (when (file-exists-p guru-el)
                                         ;    (load-file guru-el)))
 
-  (add-to-list 'load-path "~/tmp/elisp/use-package")
+  (add-to-list 'load-path "~/.emacs.d/manual-clones/use-package")
   (require 'use-package)
 
   (use-package go-mode
-    :load-path "~/tmp/elisp/go-mode")
+    :load-path "~/.emacs.d/manual-clones/go-mode.el")
 
   ;; If the go-guru.el file is in the load path, this will load it.
   ;;(require 'go-guru)
