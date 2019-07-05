@@ -15,7 +15,7 @@
   ;; Customize compile command to run go build
   (if (not (string-match "go" compile-command))
       (set (make-local-variable 'compile-command)
-           "go build -v && go vet && go test -v -cover -coverprofile=/tmp/c"))
+           "go build -v -gcflags=\"-m=1 -l\" && go vet && go test -v -cover -coverprofile=/tmp/c"))
 
   (use-package go-guru)
 

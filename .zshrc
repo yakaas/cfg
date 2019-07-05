@@ -59,7 +59,7 @@ ZSH_THEME="jreese"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+    git autojump
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -102,6 +102,8 @@ updategotools() {
     go get -u github.com/dougm/goflymake
     go get -u github.com/rogpeppe/godef/...
     go get -u golang.org/x/tools/cmd/guru
+
+    cd $GOPATH/src/github.com/rogpeppe/godef && git pull && go install
 }
 
 lock() {
