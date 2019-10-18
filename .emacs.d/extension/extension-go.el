@@ -48,6 +48,9 @@
   ;;(require 'go-guru)
 
   (require 'go-autocomplete)
+  (require 'auto-complete-config)
+  ;;(ac-config-default)
+  (require 'go-autocomplete)
   ;; Misc go stuff
   ;;(auto-complete-mode 1))                         ; Enable auto-complete mode
 

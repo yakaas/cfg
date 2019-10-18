@@ -98,7 +98,6 @@ updategotools() {
     go get -u golang.org/x/tools/cmd/goimports
     go get -u github.com/nsf/gocode
     go get -u golang.org/x/tools/cmd/...
-    go get -u github.com/nsf/gocode
     go get -u github.com/dougm/goflymake
     go get -u github.com/rogpeppe/godef/...
     go get -u golang.org/x/tools/cmd/guru
