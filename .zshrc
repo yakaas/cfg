@@ -145,3 +145,5 @@ export GOPATH=$(go env GOPATH)
 
 #update path with go root
 PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"

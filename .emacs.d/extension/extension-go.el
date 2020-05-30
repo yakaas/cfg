@@ -1,6 +1,9 @@
 ;(when (memq window-system '(mac ns))
 ;  (exec-path-from-shell-copy-env "GOPATH"))
 
+(setenv "USE_SYSTEM_GO" "1")
+(setenv "GO111MODULE" "off")
+
 (dolist (p '(go-mode go-autocomplete go-eldoc))
   (unless (package-installed-p p)
     (package-install p)))

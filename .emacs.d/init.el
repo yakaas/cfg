@@ -71,9 +71,8 @@
     )
   "A list of packages to ensure are installed at launch.")
 
-(setq fiplr-ignored-globs '((directories (".git" ".svn"))
+(setq fiplr-ignored-globs '((directories (".git" ".svn" ".gen" "vendor" ".tmp" ".go"))
                             (files ("*.jpg" "*.png" "*.zip" "*~"))))
-
 (global-set-key "\C-xf" 'fiplr-find-file)
 
 ;; Check for any packages that are not installed, and auto install.
@@ -303,7 +302,7 @@ Version 2016-12-27"
 (global-set-key (kbd "C-c a") 'ag)
 (setq ag-reuse-buffers 't)
 (setq ag-highlight-search t)
-
+(setq ag-arguments '("--ignore" "mocks/" "--ignore" "vendor/"))
 
 ;; Rust
 (use-package rust-mode
