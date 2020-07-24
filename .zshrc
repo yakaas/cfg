@@ -147,3 +147,5 @@ export GOPATH=$(go env GOPATH)
 PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+RPROMPT='%{$fg[yellow]%}%D{%M:%S} %{$reset_color%}'
