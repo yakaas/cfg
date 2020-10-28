@@ -149,3 +149,4 @@ export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 RPROMPT='%{$fg[yellow]%}%D{%M:%S} %{$reset_color%}'
+export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
