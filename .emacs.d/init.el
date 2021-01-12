@@ -6,6 +6,9 @@
 
 ;;; Code:
 
+; fix for melps tls errors https://www.reddit.com/r/emacs/comments/kaipc2/melpa_strange_error/
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -21,7 +24,7 @@
 (require 'cl)
 
 (let ((default-directory user-emacs-directory))
-  ;; personal script path
+2  ;; personal script path
   (normal-top-level-add-to-load-path '("extension"))
   ;; external script path
   (normal-top-level-add-to-load-path
@@ -68,12 +71,19 @@
     yasnippet
     ack
     ag
+;    projectile
     )
   "A list of packages to ensure are installed at launch.")
 
-(setq fiplr-ignored-globs '((directories (".git" ".svn" ".gen" "vendor" ".tmp" ".go"))
-                            (files ("*.jpg" "*.png" "*.zip" "*~"))))
+;https://github.com/grizzl/fiplr
+(setq fiplr-root-markers '(".y")) ;default (setq fiplr-root-markers '(".git" ".svn"))
+(setq fiplr-ignored-globs '((directories (".git" ".svn" ".gen" "vendor" ".tmp" ".go" "bin" "build" "config" "dockerfiles" "patches" "pkg" "rules" "tools" "udeploy" "third-party" "uber.com" ".buildkite" ".sourcegraph" "bazel-*" "third_party"))
+                            (files ("*.jpg" "*.png" "*.zip" "*~" ".git*" "METADATA"))))
 (global-set-key "\C-xf" 'fiplr-find-file)
+
+;; (global-set-key (kbd "s-f") 'projectile-find-file)
+;; (global-set-key (kbd "s-s") 'helm-do-grep-ag)
+;; (global-set-key (kbd "s-S") 'helm-grep-do-git-grep)  ;; I have one project where ag has an incompatible ignore list.
 
 ;; Check for any packages that are not installed, and auto install.
 (let ((uninstalled-packages (remove-if 'package-installed-p my-required-packages)))
