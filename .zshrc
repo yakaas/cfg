@@ -150,3 +150,14 @@ export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 RPROMPT='%{$fg[yellow]%}%D{%M:%S} %{$reset_color%}'
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+
+# JDK
+unset JAVA_HOME
+export JAVA8_HOME="$(/usr/libexec/java_home -v1.8)"
+export JAVA11_HOME="$(/usr/libexec/java_home -v11)"
+alias jdk_11='export JAVA_HOME="$JAVA11_HOME" && export PATH="$PATH:$JAVA_HOME/bin"'
+alias jdk_8='export JAVA_HOME="$JAVA8_HOME" && export PATH="$PATH:$JAVA_HOME/bin"'
+jdk_8 # Use jdk 8 as the default jdk
+
+#alias glll='git log --graph --pretty=format:'\''%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' ' -- ./*'
+alias glll="git log --graph --pretty=format:'\''%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' ' -- ./*"
