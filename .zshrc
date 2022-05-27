@@ -114,6 +114,35 @@ historyfn() {
     history | sort -k 2| uniq -f 1 | sort -n | cut -f 2
 }
 
+bazelpath() {
+    b=$PWD
+    b=${b:22:500}
+    b="/$b/..."
+    echo $b
+}
+
+bazelbuild() {
+    bp="$(bazelpath)"
+    echo "building: " $bp
+    bazel build $bp
+}
+
+bazeltest() {
+    bazelpath="$(bazelpath)"
+    echo "testing: " $bazelpath
+    bazel test $bazelpath
+}
+
+setupgopath() {
+    bazelpath="$(bazelpath)"
+    echo "calling setup-gopath for: " $bazelpath
+    setup-gopath $bazelpath
+}
+
+setconfigdir() {
+    export UBER_CONFIG_DIR=$PWD/config
+}
+
 alias gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
 alias gs='git status -sb'
 alias gc='git commit -v -a'
@@ -145,8 +174,6 @@ export GOPATH=$(go env GOPATH)
 
 #update path with go root
 PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 RPROMPT='%{$fg[yellow]%}%D{%M:%S} %{$reset_color%}'
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
@@ -159,5 +186,10 @@ alias jdk_11='export JAVA_HOME="$JAVA11_HOME" && export PATH="$PATH:$JAVA_HOME/b
 alias jdk_8='export JAVA_HOME="$JAVA8_HOME" && export PATH="$PATH:$JAVA_HOME/bin"'
 jdk_8 # Use jdk 8 as the default jdk
 
+alias gll='git log --graph --pretty=format:'\''%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
 #alias glll='git log --graph --pretty=format:'\''%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' ' -- ./*'
 alias glll="git log --graph --pretty=format:'\''%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' ' -- ./*"
+
+export PATH="/usr/local/opt/go@1.13/bin:$PATH"
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh

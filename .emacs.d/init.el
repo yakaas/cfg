@@ -11,7 +11,16 @@
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;;(package-initialize)
+
+;; (require 'package)
+;; (add-to-list 'package-archives
+;;              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; (package-initialize)
+
 
 ;; These are base customizations that are emacs centric.
 (load (concat user-emacs-directory "base-custom.el"))
@@ -24,7 +33,7 @@
 (require 'cl)
 
 (let ((default-directory user-emacs-directory))
-2  ;; personal script path
+  ;; personal script path
   (normal-top-level-add-to-load-path '("extension"))
   ;; external script path
   (normal-top-level-add-to-load-path
@@ -71,6 +80,7 @@
     yasnippet
     ack
     ag
+    protobuf-mode
 ;    projectile
     )
   "A list of packages to ensure are installed at launch.")
@@ -349,5 +359,8 @@ Version 2016-12-27"
 
 (require 'thrift-mode)
 (add-to-list 'auto-mode-alist '("\\.thrift$" . thrift-mode))
+
+(require 'protobuf-mode)
+(setq auto-mode-alist  (cons '(".proto$" . protobuf-mode) auto-mode-alist))
 
 ; init.el ends here
